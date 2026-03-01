@@ -1,4 +1,3 @@
-```markdown
 # Coachtech Furima
 
 Laravelを用いたフリマアプリケーションです。  
@@ -81,6 +80,80 @@ items ||--o{ purchase_histories : purchased_in
 
 item_categories ||--o{ item_item_categories : has
 items ||--o{ item_item_categories : categorized_as
+
+
+users {
+  bigint id PK
+  varchar name
+  varchar email
+  varchar password
+  varchar postcode
+  varchar address
+  varchar building_name
+  varchar profile_image
+  boolean profile_completed
+  timestamp created_at
+  timestamp updated_at
+}
+
+items {
+  bigint id PK
+  bigint user_id FK
+  varchar name
+  int price
+  varchar image_path
+  text description
+  varchar brand_name
+  varchar status
+  boolean is_sold
+  timestamp created_at
+  timestamp updated_at
+}
+
+likes {
+  bigint id PK
+  bigint user_id FK
+  bigint item_id FK
+  timestamp created_at
+  timestamp updated_at
+}
+
+comments {
+  bigint id PK
+  bigint user_id FK
+  bigint item_id FK
+  text body
+  timestamp created_at
+  timestamp updated_at
+}
+
+purchase_histories {
+  bigint id PK
+  bigint user_id FK
+  bigint item_id FK
+  varchar postcode
+  varchar address
+  varchar building_name
+  varchar payment_method
+  varchar status
+  timestamp created_at
+  timestamp updated_at
+}
+
+item_categories {
+  bigint id PK
+  varchar name
+  timestamp created_at
+  timestamp updated_at
+}
+
+item_item_categories {
+  bigint id PK
+  bigint item_id FK
+  bigint item_category_id FK
+  timestamp created_at
+  timestamp updated_at
+}
 ```
 
 # URL
