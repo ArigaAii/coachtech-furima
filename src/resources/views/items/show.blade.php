@@ -89,7 +89,15 @@
                 <div class="item-show__comment">
 
                     <div class="item-show__comment-head">
-                        <div class="item-show__avatar"></div>
+                        <div class="item-show__avatar">
+                            @if(!empty($comment->user->profile_image))
+                                <img
+                                    src="{{ asset('storage/' . $comment->user->profile_image) }}"
+                                    alt="avatar"
+                                    class="item-show__avatar-img"
+                                >
+                            @endif
+                        </div>
                         <div class="item-show__comment-name">{{ $comment->user->name }}</div>
                     </div>
 

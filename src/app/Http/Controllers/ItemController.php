@@ -13,7 +13,7 @@ class ItemController extends Controller
         $keyword = $request->query('keyword');
 
         $query = Item::query();
-        
+
         //自分のid以外を表示（ログイン時のみ）
         if (auth()->check()) {
             $query->where('user_id', '!=', auth()->id());
@@ -32,9 +32,7 @@ class ItemController extends Controller
             }
 
             $query->whereIn('id', function ($q) {
-                $q->from('likes')
-                  ->select('item_id')
-                  ->where('user_id', auth()->id());
+                $q->from('likes')->select('item_id')->where('user_id', auth()->id());
             });
         }
 

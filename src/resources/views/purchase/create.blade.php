@@ -9,7 +9,6 @@
         <form method="POST" action="{{ route('purchase.checkout', $item->id) }}" class="purchase__grid">
             @csrf
 
-
             <div class="purchase__left">
                 <div class="purchase__item">
                     <div class="purchase__thumb">

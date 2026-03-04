@@ -25,7 +25,7 @@
         <div class="sell__section">
             <h2 class="sell__heading">商品の詳細</h2>
 
-            {{-- カテゴリー（仮：checkboxで実装、見た目はCSSで“タグ”に） --}}
+            {{-- カテゴリー --}}
             <p class="sell__label">カテゴリー</p>
             <div class="sell__categories">
                 @foreach($categories as $cat)
@@ -44,9 +44,9 @@
             <select name="status">
                 <option value="">選択してください</option>
                 <option value="new" {{ old('status')==='new' ? 'selected' : '' }}>良好</option>
-                <option value="good" {{ old('status')==='used' ? 'selected' : '' }}>目立った傷や汚れなし</option>
-                <option value="used" {{ old('status')==='new' ? 'selected' : '' }}>やや傷や汚れあり</option>
-                <option value="bad" {{ old('status')==='used' ? 'selected' : '' }}>状態が悪い</option>
+                <option value="good" {{ old('status')==='good' ? 'selected' : '' }}>目立った傷や汚れなし</option>
+                <option value="used" {{ old('status')==='used' ? 'selected' : '' }}>やや傷や汚れあり</option>
+                <option value="bad" {{ old('status')==='bad' ? 'selected' : '' }}>状態が悪い</option>
             </select>
             @error('status') <p class="sell__error">{{ $message }}</p> @enderror
         </div>

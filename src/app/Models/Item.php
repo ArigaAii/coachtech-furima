@@ -55,7 +55,7 @@ class Item extends Model
     public function getStatusLabelAttribute()
     {
     return [
-        'new'  => '新品',
+        'new'  => '良好',
         'good' => '目立った傷や汚れなし',
         'used' => 'やや傷や汚れあり',
         'bad'  => '状態が悪い',

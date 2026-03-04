@@ -16,6 +16,7 @@
         </a>
 
         <form class="header__search" method="GET" action="{{ url('/') }}">
+            <input type="hidden" name="tab" value="{{ request('tab') }}">
             <input
                 class="header__searchInput"
                 type="text"

@@ -27,12 +27,10 @@
 
         <div class="mypage__name">{{ $user->name }}</div>
 
-        {{-- ルート名は routes に合わせて変更 --}}
         <a class="mypage__editBtn" href="{{ route('mypage.profile.edit') }}">
             プロフィールを編集
         </a>
     </div>
-
 
     {{-- タブ --}}
     @php $tab = request('tab', 'listing'); // listing or purchase

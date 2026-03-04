@@ -4,15 +4,19 @@
 
 @section('content')
 
+@php
+    $query = request()->query();
+@endphp
+
 <div class="tabs-wrapper">
     <div class="tabs">
         <a class="tabs__link {{ $tab === 'recommend' ? 'is-active' : '' }}"
-            href="{{ url('/') }}">
+            href="{{ url('/?' . http_build_query(array_merge($query, ['tab' => null]))) }}">
             おすすめ
         </a>
 
         <a class="tabs__link {{ $tab === 'mylist' ? 'is-active' : '' }}"
-            href="{{ url('/?tab=mylist') }}">
+            href="{{ url('/?' . http_build_query(array_merge($query, ['tab' => 'mylist']))) }}">
             マイリスト
         </a>
     </div>

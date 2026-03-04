@@ -413,6 +413,15 @@ body {
     border-radius: 50%;
     background: #ddd;
     flex: 0 0 40px;
+    overflow: hidden;
+    flex-shrink: 0;
+}
+
+.item-show__avatar-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* トリミングして丸にフィット */
+    display: block;
 }
 
 .item-show__comment-name {
@@ -1042,8 +1051,6 @@ body {
         padding: 22px 16px;
     }
 }
-
-
 
 .profile-image-group {
     text-align: center;

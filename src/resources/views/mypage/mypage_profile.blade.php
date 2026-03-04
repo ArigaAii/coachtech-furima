@@ -25,11 +25,11 @@
                             <div id="preview" class="profile-image profile-image--empty"></div>
                         @endif
                     </div>
-                
+
                     <label class="image-select-btn" for="profile_image_input">
                         画像を選択する
                     </label>
-                
+
                     <input
                         id="profile_image_input"
                         type="file"

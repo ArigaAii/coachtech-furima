@@ -130,7 +130,7 @@ class PurchaseController extends Controller
 
         session()->forget("purchase_address.$item_id");
 
-        return redirect()->route('mypage', ['tab' => 'purchase']);
+        return redirect()->route('items.index');
     }
 
     public function cancel($item_id)

@@ -43,7 +43,6 @@ class ProfileController extends Controller
             $user->save();
         }
 
-        //初回でも通常でも自然な遷移
         return redirect('/');
     }
 }
