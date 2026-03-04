@@ -2,7 +2,6 @@
 
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Auth\EmailVerificationRequest;
-
 use App\Http\Controllers\ItemController;
 use App\Http\Controllers\MypageController;
 use App\Http\Controllers\SellController;
@@ -55,19 +54,14 @@ Route::middleware(['auth', 'verified', 'profile.completed'])->group(function () 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/mypage/profile', [MypageController::class, 'edit'])->name('mypage.profile.edit');
     Route::post('/mypage/profile', [MypageController::class, 'update'])->name('mypage.profile.update');
-    //Route::post('/item/{item_id}/comments', [CommentController::class, 'store'])->name('items.comments.store');
 });
 
 
-// ログイン必須（購入・コメント・いいね）
+// ログイン必須（コメント・いいね）
 Route::middleware('auth')->group(function () {
     //いいね
     Route::post('/item/{item}/like', [LikeController::class, 'toggle'])->name('items.like');
 
     //コメント
-    Route::post('/item/{item}/comments', [ItemCommentController::class, 'store'])
-        ->name('items.comments.store');
-
-    Route::get('/mypage/profile', [MypageController::class, 'edit'])->name('mypage.profile.edit');
-    Route::post('/mypage/profile', [MypageController::class, 'update'])->name('mypage.profile.update');
+    Route::post('/item/{item}/comments', [ItemCommentController::class, 'store'])->name('items.comments.store');
 });

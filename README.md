@@ -61,13 +61,7 @@ php artisan storage:link
 
 # テーブル設計
 
-![users](docs/tables/users.png)
-
-
-![purchase_histories](docs/tables/purchase_histories.png)
-
-
-![likes](docs/tables/likes.png)
+![tables](docs/tables/tables.png)
 
 # ER図
 

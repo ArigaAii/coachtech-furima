@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\ProfileRequest;
 use App\Models\Item;
 use App\Models\PurchaseHistory;
+use Illuminate\Support\Facades\Log;
 
 class MypageController extends Controller
 {
@@ -37,7 +38,7 @@ class MypageController extends Controller
     {
         $validated = $request->validated();
 
-        \Log::info('profile update', [
+        Log::info('profile update', [
             'hasFile' => $request->hasFile('profile_image'),
             'validated_keys' => array_keys($validated),
         ]);

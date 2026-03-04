@@ -12,30 +12,37 @@ body {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 12px 16px;
+    padding: 12px 24px;
 }
 .header__logo img {
     height: 28px;
     display: black;
 }
 .header__search {
-    flex: 1;
+    flex: 1 1 auto;
     display: flex;
     justify-content: center;
+    min-width: 0;
 }
 
 .header__searchInput {
-    width: min(520px,100%);
-    max-width: 40vw;
+    width: 100%;
+    max-width: 520px;
     padding: 8px 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
 }
+
+.header__logo {
+    flex-shrink: 0;
+}
+
 .header__nav {
     display: flex;
     align-items: center;
     gap: 32px;
     white-space: nowrap;
+    flex-shrink: 0;
 }
 .header__link {
     text-decoration: none;
@@ -128,7 +135,8 @@ body {
 
 .tabs__link {
     text-decoration: none;
-    font-size: 14px;
+    font-size: 16px;
+    font-weight: 700;
     border-bottom: 10px;
     color: #000000ba;
 }
@@ -208,7 +216,7 @@ body {
     padding: 12px 0 11px;
 }
 .item-card__name {
-    font-weight: 400;
+    font-weight: 700;
     margin: 0 0 6px;
 }
 
@@ -334,15 +342,23 @@ body {
     margin: 24px 0;
     background: #ff5a5f;
     color: #fff;
-    padding: 12px 0;
-    border-radius: 6px;
+    padding: 6px 0;
+    border-radius: 4px;
     font-weight: bold;
     text-align: center;
     text-decoration: none;
 }
 
 .item-show__section-title {
-    margin: 22px 0 8px;
+    color: #000;
+    margin: 22px 0 12px;
+    font-size: 16px;
+    font-weight: 700;
+}
+
+.item-show__section-title_s {
+    color: #777;
+    margin: 22px 0 12px;
     font-size: 16px;
     font-weight: 700;
 }
@@ -350,7 +366,7 @@ body {
 .item-show__desc {
     color: #333;
     line-height: 1.8;
-    font-size: 14px;
+    font-size: 12px;
     margin: 0;
 }
 
@@ -358,12 +374,13 @@ body {
     display: grid;
     grid-template-columns: 140px 1fr;
     row-gap: 10px;
-    font-size: 14px;
+    font-size: 12px;
     margin: 0;
 }
 
 .item-show__dl dt {
-    color: #666;
+    color: #000;
+    font-weight: 700;
 }
 
 .item-show__dl dd {
@@ -380,31 +397,34 @@ body {
 }
 
 .item-show__comment {
-    display: flex;
-    gap: 10px;
-    align-items: flex-start;
     margin-bottom: 14px;
 }
 
+.item-show__comment-head {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
 .item-show__avatar {
-    width: 34px;
-    height: 34px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
     background: #ddd;
-    flex: 0 0 auto;
+    flex: 0 0 40px;
 }
 
 .item-show__comment-name {
-    font-weight: 700;
-    margin-bottom: 4px;
+    font-weight: 800;
+    font-size: 12px;
 }
 
 .item-show__comment-text {
-    width: 100%;
     background: #f1f1f1;
     margin-top: 0px;
-    padding: 0px 12px;
-    border-radius: 6px;
+    padding: 10px 12px;
+    border-radius: 4px;
     font-size: 13px;
 }
 
@@ -421,13 +441,13 @@ body {
 }
 
 .item-show__submit {
-    margin-top: 16px;
+    margin-top: 20px;
     width: 100%;
     background: #ff5a5f;
     color: #fff;
     border: none;
-    padding: 12px 0;
-    border-radius: 6px;
+    padding: 8px 0;
+    border-radius: 4px;
     font-weight: bold;
 }
 
@@ -447,7 +467,7 @@ body {
     background: #ff3b30;
     color: #fff;
     font-weight: bold;
-    border-radius: 8px;
+    border-radius: 4px;
 }
 
 .item-show__submit--link {
@@ -466,12 +486,13 @@ body {
 
 /* ===== auth / profile common ===== */
 .page {
-    padding: 48px 16px;
+    padding: 34px 16px;
 }
 
 .auth {
     max-width: 680px;
     margin: 0 auto;
+    padding: 6px 0 80px;
 }
 
 .auth__title {
@@ -493,16 +514,16 @@ body {
 .form-label {
     display: block;
     font-size: 13px;
-    margin: 0 0 6px;
+    margin: 28px 0 0px;
     font-weight: 600;
 }
 
 .form-input {
     width: 100%;
-    height: 40px;
+    height: 30px;
     padding: 8px 12px;
     border: 1px solid #cfcfcf;
-    border-radius: 4px;
+    border-radius: 2px;
     background: #fff;
 }
 
@@ -515,7 +536,7 @@ body {
 .btn {
     display: block;
     width: 100%;
-    height: 44px;
+    height: 36px;
     border: none;
     border-radius: 4px;
     font-weight: 700;
@@ -592,12 +613,24 @@ body {
 }
 
 /* ===== purchase ===== */
-.purchase { padding: 24px 0; }
-.purchase__container { max-width: 1100px; margin: 0 auto; padding: 0 24px; }
+.purchase {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 24px 80px;
+    box-sizing: border-box;
+}
 
-.purchase__grid{
+
+.purchase__container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.purchase__grid {
     display: grid;
-    grid-template-columns: 1fr 360px;
+    grid-template-columns: 1fr 320px;
     gap: 40px;
     align-items: start;
 }
@@ -605,8 +638,8 @@ body {
 .purchase__item{
     display: grid;
     grid-template-columns: 120px 1fr;
-    gap: 16px;
-    align-items: center;
+    gap: 24px;
+    align-items: start;
 }
 
 .purchase__thumb{
@@ -623,19 +656,30 @@ body {
     color:#666; font-size: 12px;
 }
 
-.purchase__item-name{ font-weight: 700; margin-bottom: 8px; }
+.purchase__item-name{
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
 .purchase__item-price{ font-weight: 700; }
 
 .purchase__hr{ border: none; border-top: 1px solid #ddd; margin: 24px 0; }
 
-.purchase__section-title{ font-weight: 700; margin-bottom: 10px; }
+.purchase__section{
+    padding-left: 24px;
+}
+
+.purchase__section-title{
+    font-weight: 700;
+    margin-bottom: 10px;
+}
 
 .purchase__select{
     width: 260px;
     height: 34px;
     border: 1px solid #ccc;
     border-radius: 4px;
-    padding: 0 10px;
+    padding: 0 16px;
     background: #fff;
 }
 
@@ -643,13 +687,21 @@ body {
     display:flex;
     align-items:center;
     justify-content: space-between;
+    padding-right: 24px;
 }
 .purchase__change{ color:#1a73e8; text-decoration: none; font-size: 14px; }
 .purchase__change:hover{ text-decoration: underline; }
 
 .purchase__address{ font-size: 14px; line-height: 1.8; }
 
+.purchase__right{
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
 .purchase__summary {
+    width: 100%;
     border: 1px solid #ddd;
     border-radius: 6px;
     overflow: hidden;
@@ -659,7 +711,7 @@ body {
 .purchase__row {
     display:flex;
     justify-content: space-between;
-    padding: 16px;
+    padding: 24px 36px;
     border-bottom: 1px solid #ddd;
     background: #fff;
 }
@@ -668,16 +720,15 @@ body {
     border-bottom: none;
 }
 
-.purchase__btnWrap{
-    padding: 18px 16px 16px;
-    background: #fff;
+.purchase__label {
+    font-size: 14px;
 }
 
-.purchase__btn{
+.purchase__btn {
     width: 100%;
-    height: 44px;
     border: none;
     border-radius: 4px;
+    padding: 10px 16px;
     background: #ff5a5f;
     color: #fff;
     font-weight: 700;
@@ -694,25 +745,25 @@ body {
 .sell {
     max-width: 650px;
     margin: 0 auto;
-    padding: 40px 16px 80px;
+    padding: 14px 16px 80px;
 }
 
 .sell__title {
     text-align: center;
     font-size: 24px;
     font-weight: 700;
-    margin: 0 0 28px;
+    margin: 0 0 0px;
 }
 
 .sell__form {
     background: #fff;
     border-radius: 12px;
-    padding: 28px 24px;
+    padding: 0px 24px;
 }
 
 .sell__section {
-    padding: 22px 0;
-    border-bottom: 1px solid #eee;
+    padding: 0;
+    border-bottom: none;
 }
 
 .sell__section:first-child {
@@ -729,12 +780,14 @@ body {
     font-size: 18px;
     font-weight: 700;
     margin: 0 0 14px;
+    padding: 30px 0 8px;
+    border-bottom: 2px solid #eee;
 }
 
 .sell__label {
     font-size: 14px;
     font-weight: 600;
-    margin: 14px 0 8px;
+    margin: 18px 0 2px;
 }
 
 .sell__error,
@@ -746,7 +799,7 @@ body {
 
 /* inputs */
 .sell input[type="text"],
-.sell input[type="number"],
+.sell input[type="number"]:not(.sell__price-field),
 .sell textarea,
 .sell select {
     width: 100%;
@@ -779,14 +832,34 @@ body {
 }
 
 .sell__image-box input[type="file"] {
-    margin: 0;
+    display: none;
 }
 
-/* submit button */
+/* 赤いボタン */
+.sell__image-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px 18px;
+    border: 1px solid #ff5b5b;
+    border-radius: 8px;
+    background: #fff;
+    color: #ff5b5b;
+    font-weight: 700;
+    font-size: 14px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.sell__image-btn:hover {
+    background: rgba(255, 91, 91, 0.08);
+}
+
+/* 赤いボタン */
 .sell__submit {
     display: block;
     width: 100%;
-    margin-top: 26px;
+    margin-top: 70px;
     border: none;
     border-radius: 4px;
     padding: 8px 16px;
@@ -813,6 +886,7 @@ body {
     display: flex;
     flex-wrap: wrap;
     gap: 12px;
+    padding: 14px 0;
 }
 
 /* label全体をクリックできるように */
@@ -854,6 +928,50 @@ body {
 .sell__category input[type="checkbox"]:focus-visible + .sell__categoryTag{
     outline: 3px solid rgba(255,91,91,.35);
     outline-offset: 2px;
+}
+
+/* 価格：￥付き入力（お手本形式） */
+.sell__price-group {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    border: 1px solid #ccc;      /* 既存inputの枠線に合わせて調整OK */
+    border-radius: 6px;
+    background: #fff;
+    padding: 4px 10px;
+    box-sizing: border-box;
+}
+
+/* ¥表示 */
+.sell__price-prefix {
+    margin-right: 0px;
+    font-size: 18px;
+    color: #555;
+    font-weight: 600;
+    line-height: 1;
+}
+
+.sell__price-field {
+    flex: 1 1 auto;
+    width: 100%;
+    border: none !important;
+    outline: none;
+    background: transparent;
+    padding: 1px;
+    margin: 0;
+    box-shadow: none !important;
+    font-size: 20px;
+    line-height: 1;
+}
+
+/* 任意：numberのスピンボタンが邪魔なら消す（好み） */
+.sell__price-field::-webkit-outer-spin-button,
+.sell__price-field::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.sell__price-field {
+    -moz-appearance: textfield;
 }
 
 /* ===== Address edit page ===== */
@@ -945,27 +1063,27 @@ body {
 }
 
 /* 画像＋ボタン横並び */
-.profile-image-row{
+.profile-image-row {
     display: flex;
     align-items: center;
     justify-content: flex-start;
     gap: 18px;
-    margin-top: 10px;
+    margin: 10px 0;
 }
 
 /* 丸アイコン */
 .profile-image-wrapper {
-    width: 110px;
-    height: 110px;
+    width: 90px;
+    height: 90px;
     border-radius: 50%;
     overflow: hidden;
     background: #ddd;
-    flex: 0 0 110px;
+    flex: 0 0 90px;
 }
 
 .profile-image {
-    width: 100%;
-    height: 100%;
+    width: 90px;
+    height: 90px;
     object-fit: cover;
     display: block;
 }
@@ -973,14 +1091,14 @@ body {
 
 .image-select-btn {
     display: inline-block;
-    padding: 4px 14px;
+    padding: 4px 10px;
     border: 2px solid #ff5a5a;
     color: #ff5a5a;
-    border-radius: 8px;
+    border-radius: 6px;
     cursor: pointer;
-    transition: 0.2s;
     transition: .2s;
     background: #fff;
+    font-size: 12px;
 }
 
 .image-select-btn:hover {

@@ -7,7 +7,7 @@
     <div class="auth">
         <h1 class="auth__title">会員登録</h1>
 
-        <form class="auth__form" method="POST" action="/register">
+        <form class="auth__form" method="POST" action="/register" novalidate>
             @csrf
 
             <div class="form-group">

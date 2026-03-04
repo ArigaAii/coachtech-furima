@@ -52,5 +52,16 @@ class Item extends Model
         );
     }
 
+    public function getStatusLabelAttribute()
+    {
+    return [
+        'new'  => '新品',
+        'good' => '目立った傷や汚れなし',
+        'used' => 'やや傷や汚れあり',
+        'bad'  => '状態が悪い',
+    ][$this->status] ?? $this->status; 
+    // 日本語データが入っている場合はそのまま返す
+    }
+
 
 }

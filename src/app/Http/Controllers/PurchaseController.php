@@ -36,10 +36,10 @@ class PurchaseController extends Controller
         if ($item->is_sold) {
             abort(403, 'この商品は売り切れています');
         }
-        
+
         //コンビニ支払い（即購入確定）
         if ($data['payment_method'] === 'convenience') {
-            
+
             DB::transaction(function () use ($item, $request) {
 
                 // 同時購入防止
@@ -99,23 +99,21 @@ class PurchaseController extends Controller
 
     public function success(Request $request, $item_id)
     {
-        
+        $user = $request->user();
+
         $addr = session("purchase_address.$item_id", [
             'postcode' => $user->postcode,
             'address' => $user->address,
             'building_name' => $user->building_name,
         ]);
 
-        // 購入履歴を保存（1回だけ）
-        $user = $request->user();
         $item = Item::findOrFail($item_id);
 
-        DB::transaction(function () use ($user, $item) {
+        DB::transaction(function () use ($user, $item,$addr) {
 
             // すでに売り切れなら、二重保存しない
-            if ($item->is_sold) {return;}
+            if ($item->is_sold) { return; }
 
-            // purchase_histories、テーブルに合わせる
             PurchaseHistory::firstOrCreate(
                 ['user_id' => $user->id, 'item_id' => $item->id],
                 [
@@ -128,11 +126,10 @@ class PurchaseController extends Controller
             );
 
             $item->update(['is_sold' => true]);
-
         });
 
         session()->forget("purchase_address.$item_id");
-        
+
         return redirect()->route('mypage', ['tab' => 'purchase']);
     }
 
@@ -141,20 +138,4 @@ class PurchaseController extends Controller
         return redirect()->route('purchase.create', $item_id)
             ->with('error', '決済をキャンセルしました');
     }
-
-    //public function store(Request $request, $item_id)
-    //{
-        //$user = $request->user();
-        //$item = Item::findOrFail($item_id);
-
-        //DB::transaction(function () use ($user, $item) {
-
-           // \App\Models\Purchase::create([
-            //   'user_id' => $user->id,
-            // 'item_id' => $item->id,
-           // ]);
-        //});
-
-        //return redirect()->route('items.show', ['item_id' => $item_id])->with('status', '購入が完了しました');
-    //}
 }

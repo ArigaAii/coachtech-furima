@@ -14,7 +14,8 @@
             <p class="sell__label">商品画像</p>
 
             <div class="sell__image-box">
-                <input type="file" name="image" accept="image/jpeg,image/png">
+                <label class="sell__image-btn" for="image">画像を選択する</label>
+                <input id="image" type="file" name="image" name="image" accept="image/*">
             </div>
 
             @error('image') <p class="sell__error">{{ $message }}</p> @enderror
@@ -70,8 +71,15 @@
         {{-- 販売価格 --}}
         <div class="sell__section">
             <p class="sell__label">販売価格</p>
-            <input type="number" name="price" value="{{ old('price') }}" min="0">
-            @error('price') <p class="sell__error">{{ $message }}</p> @enderror
+
+            <div class="sell__price-group">
+                <span class="sell__price-prefix">¥</span>
+                <input class="sell__price-field" type="number" name="price" value="{{ old('price') }}" min="0">
+            </div>
+
+            @error('price')
+                <p class="sell__error">{{ $message }}</p>
+            @enderror
         </div>
 
         <button class="sell__submit" type="submit">出品する</button>

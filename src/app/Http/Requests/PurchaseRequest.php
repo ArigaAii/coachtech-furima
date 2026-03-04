@@ -25,7 +25,6 @@ class PurchaseRequest extends FormRequest
     {
         return [
             'payment_method' => ['required', 'in:card,convenience'],
-            //配送先選択必須をここに追加する
         ];
     }
 

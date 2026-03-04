@@ -27,7 +27,6 @@ class SellController extends Controller
 
             // 画像は storage/app/public/items に保存 → /storage/items/... でアクセス
             $path = $request->file('image')->store('items', 'public');
-        
 
             $item = Item::create([
                 'user_id'        => auth()->id(),
@@ -35,8 +34,8 @@ class SellController extends Controller
                 'brand_name'     => $request->input('brand_name') ?: null,
                 'description'    => $data['description'],
                 'price'          => $data['price'],
-                'status'         => $data['status'], // new / used
-                'image_path'     => 'storage/' . $path,   // asset($item->image_path) で表示できる,
+                'status'         => $data['status'],
+                'image_path'     => 'storage/' . $path,
                 'likes_count'    => 0,
                 'comments_count' => 0,
             ]);

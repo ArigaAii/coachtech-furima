@@ -77,19 +77,24 @@
                 </dd>
                 <dt>商品の状態</dt>
                 @if($item->status)
-                    <div class="item-show__status">{{ $item->status }}</div>
+                    <div class="item-show__status">{{ $item->status_label }}</div>
                 @endif
             </dl>
 
-            <h2 class="item-show__section-title">
+            <h2 class="item-show__section-title_s">
                 コメント({{ $item->comments->count() }})
             </h2>
 
             @foreach($item->comments as $comment)
                 <div class="item-show__comment">
-                    <div class="item-show__avatar"></div>
-                    <div class="item-show__comment-name">{{ $comment->user->name }}</div>
+
+                    <div class="item-show__comment-head">
+                        <div class="item-show__avatar"></div>
+                        <div class="item-show__comment-name">{{ $comment->user->name }}</div>
+                    </div>
+
                     <div class="item-show__comment-text">{{ $comment->body }}</div>
+
                 </div>
             @endforeach
 

@@ -27,7 +27,7 @@ class CommentController extends Controller
             'body'    => $request->body,
         ]);
 
-        //　商品詳細画面に戻る
+        //商品詳細画面に戻る
         return redirect()->route('items.show', ['item_id' => $item->id]);
     }
 }

@@ -38,7 +38,7 @@ class ProfileController extends Controller
         $user->update($validated);
 
         //初回プロフィール完了
-       if (!$user->profile_completed) {
+        if (!$user->profile_completed) {
             $user->profile_completed = true;
             $user->save();
         }
